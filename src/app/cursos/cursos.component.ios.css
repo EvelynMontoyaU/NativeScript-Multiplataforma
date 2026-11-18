@@ -1,0 +1,15 @@
+@import './cursos.component.css';
+
+.curso-card {
+  background-color: #E3F2FD;
+  border-color: #2196F3;
+}
+
+.curso-titulo {
+  color: #0D47A1;
+}
+
+.banner-plataforma {
+  background-color: #007AFF;
+  color: #FFFFFF;
+}

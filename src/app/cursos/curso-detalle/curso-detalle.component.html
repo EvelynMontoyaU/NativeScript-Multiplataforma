@@ -1,0 +1,13 @@
+<ActionBar class="action-bar">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back" (tap)="volver()"></NavigationButton>
+  <Label class="action-bar-title" text="Detalle del Módulo"></Label>
+</ActionBar>
+
+<StackLayout class="p-20" *ngIf="curso">
+  <Image src="res://ic_curso_custom" width="72" height="72" horizontalAlignment="center" marginBottom="16"></Image>
+  <Label [text]="curso.titulo" class="h2 text-center" textWrap="true"></Label>
+  <Label [text]="'Sección: ' + curso.modulo" class="body m-t-10 text-center"></Label>
+  <Label [text]="'Tiempo estimado: ' + curso.duracion" class="body m-t-5 text-center"></Label>
+  <Label [text]="'Estado: ' + (curso.completado ? 'Completado' : 'En progreso')" class="h3 m-t-15 text-center"></Label>
+  <Button text="Volver al listado" (tap)="volver()" class="-primary m-t-20"></Button>
+</StackLayout>

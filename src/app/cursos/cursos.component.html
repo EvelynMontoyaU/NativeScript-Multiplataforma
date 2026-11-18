@@ -1,0 +1,33 @@
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+  <Label class="action-bar-title" text="Módulos del Curso"></Label>
+</ActionBar>
+
+<GridLayout rows="*" columns="*">
+  <GridLayout row="0" col="0" rows="auto, auto, *" class="page__content">
+    <StackLayout row="0" class="banner-plataforma">
+      <Label [text]="mensajePlataforma" textWrap="true"></Label>
+      <Label *ngIf="esSoloAndroid" text="Variable Android activada (isAndroid = true)" fontSize="12"></Label>
+    </StackLayout>
+
+    <GridLayout row="1" columns="*, auto" margin="8 12">
+      <TextField col="0" hint="Agregar nuevo tema de estudio..." [(ngModel)]="nuevoTitulo" class="input input-border"></TextField>
+      <Button col="1" text="+ Agregar" (tap)="agregarCursoRapido()" class="-primary" marginLeft="8"></Button>
+    </GridLayout>
+
+    <!-- Requisito 7: Uso de *ngFor -->
+    <ScrollView row="2">
+      <StackLayout>
+        <GridLayout *ngFor="let item of cursos" columns="auto, *, auto" rows="auto, auto" class="curso-card" (tap)="verDetalle(item)">
+          <Image col="0" rowSpan="2" src="res://ic_curso_custom" width="40" height="40" marginRight="12" verticalAlignment="center"></Image>
+          <Label col="1" row="0" [text]="item.titulo" class="curso-titulo" textWrap="true"></Label>
+          <Label col="1" row="1" [text]="item.modulo + ' • Duración: ' + item.duracion" class="curso-detalle"></Label>
+          <Label col="2" rowSpan="2" [text]="item.completado ? '✔' : '➔'" verticalAlignment="center" fontSize="18" marginLeft="8"></Label>
+        </GridLayout>
+      </StackLayout>
+    </ScrollView>
+  </GridLayout>
+
+  <ns-side-menu row="0" col="0"></ns-side-menu>
+</GridLayout>

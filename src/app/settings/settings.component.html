@@ -1,0 +1,16 @@
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+  <Label class="action-bar-title" text="Configuración"></Label>
+</ActionBar>
+
+<GridLayout rows="*" columns="*">
+  <StackLayout row="0" col="0" class="page__content p-20" verticalAlignment="center">
+    <Image src="res://ic_curso_custom" width="76" height="76" horizontalAlignment="center" marginBottom="16"></Image>
+    <Label class="h2 text-center" text="Configuración" textWrap="true"></Label>
+    <Label class="body text-center m-t-10" text="Configuración general de la aplicación multiplataforma." textWrap="true"></Label>
+    <Button text="Abrir Menú de Navegación" (tap)="onDrawerButtonTap()" class="-primary m-t-20"></Button>
+  </StackLayout>
+
+  <ns-side-menu row="0" col="0"></ns-side-menu>
+</GridLayout>
